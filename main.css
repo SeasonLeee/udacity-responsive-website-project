@@ -56,18 +56,19 @@ ul {
 
 .header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  min-height: 56px;
-  transition: min-height 0.3s;
+  position: relative;
+  background-color: white;
+  z-index: 2;
 }
 
 .header__inner {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100vw;
+  display: flex;
+  align-items: flex-end;
 }
 
 .header__logo {
-  height: 72px;
+  height: 52px;
   margin-right: 1em;
   vertical-align: top;
   margin-top: 12px;
@@ -75,11 +76,38 @@ ul {
 
 .header__title {
   font-weight: 300;
-  font-size: 4em;
+  font-size: 1rem;
   margin: 0.5em 0.25em;
   display: inline-block;
   color: #212121;
 }
+
+
+/*
+ *
+ * Dot menu (show up when in the smaller view point)
+ *
+ */
+
+.dot-menu {
+  position: absolute;
+  top: 6vh;
+  right: 8%;
+  width: 5px;
+}
+
+.dot {
+  width: 100%;
+  background-color: #5b5757;
+  box-shadow: 0 .1rem .5rem #eee;
+  height: 5px;
+  border-radius: 50%; /* to create round shape you need to set both height and width the same value */ 
+}
+
+.dot + .dot {
+  margin-top: .2rem;
+}
+
 
 /*
  *
@@ -89,8 +117,15 @@ ul {
 
 .nav {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: white;
+  position: absolute;
+  top: -30vh;
+  z-index: 1;
+  transition: .3s top;
+}
+
+.nav__show {
+  top: 11vh;
 }
 
 .nav__list {
@@ -101,12 +136,16 @@ ul {
 
 .nav__item {
   box-sizing: border-box;
-  display: inline-block;
+  /* use these style when viewpoint grow */
+  /* display: inline-block;
   width: 24%;
+  padding: 24px; */
+  display: block;
+  padding: 12px;
   text-align: center;
   line-height: 24px;
-  padding: 24px;
   text-transform: uppercase;
+  border-bottom: 1px solid #eee;
 }
 
 .nav a {
@@ -126,11 +165,17 @@ ul {
  *
  */
 
-main {
+.main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0;
+  transition: .3s margin-top;
+}
+
+.main__after-nav {
+  margin-top: 34vh;
 }
 
 /*
@@ -367,3 +412,11 @@ footer a {
   padding: 1.5em;
 }
 
+/*
+ *
+ * Responsive width: 320px eg: iphone 5
+ *
+ */
+
+ @media screen and (max-width: 320px) {
+}
