@@ -162,8 +162,6 @@ ul {
 .main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 0;
   transition: 0.3s margin-top;
 }
@@ -450,5 +448,16 @@ footer a {
 
   .weather {
     width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    top: 6vh;
+  }
+
+  .main {
+    width: 1024px;
+    margin: 6vh auto 0;
   }
 }
